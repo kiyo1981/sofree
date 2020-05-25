@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  post "likes/:post_id/create" => "likes#create"
+  
   get 'db/index'
   # updateアクションへのルーティングを設定してください
   post "users/:id/update" => "users#update"

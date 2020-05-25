@@ -18,6 +18,11 @@
             <%= @post.created_at %>
         </p>
     </div>
+    <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+      <p>いいね！済み</p>
+    <% else %>
+      <%= link_to("いいね！","/likes/#{@post.id}/create",{method: "post"}) %>
+    <% end %>
     <% if @post.user_id == @current_user.id %>
     <div class="post-menus">
       <%= link_to('編集',"/posts/#{@post.id}/edit") %>
