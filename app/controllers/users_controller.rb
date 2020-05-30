@@ -79,12 +79,12 @@ class UsersController < ApplicationController
     end
     def logout
         session[:id] = nil
-        flash[:notice] = "ログアウトしました"
+        flash[:notice] = "ログアウト"
         redirect_to("/login")
     end
 
     def likes
-        @user = User.find(params[:id])
+        @user = User.find_by(id: params[:id])
     
         # 変数@likesを定義してください
         @likes = Like.where(user_id: @user.id)
